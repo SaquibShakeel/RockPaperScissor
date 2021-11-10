@@ -18,14 +18,15 @@ const scissorbtn = document.querySelector(".Scissor");
 
 const playbuttons = document.querySelector(".play-buttons");
 
-const player1input = document.querySelector(".player-2");
-const player2input = document.querySelector(".player-1");
+const player1input = document.querySelector(".player-1");
+const player2input = document.querySelector(".player-2");
 
 const player1Image = document.querySelector(".player-1-image");
 const player2Image = document.querySelector(".player-2-image");
 
 const player1Score = document.querySelector(".actual-score-1");
 const player2Score = document.querySelector(".actual-score-2");
+
 
 let player1ScoreCounter;
 let player2ScoreCounter;
@@ -43,6 +44,8 @@ playbtn.addEventListener("click", function (e) {
     player2Score.textContent = player2ScoreCounter;
     player1Image.style.opacity = 0;
     player2Image.style.opacity = 0;
+    document.getElementsByTagName("strong")[0].innerText= player1input.value;
+    document.getElementsByTagName("strong")[1].innerText= player2input.value;
 
     if (play) {
         document.querySelectorAll(".choose-buttons").forEach(function (element) {
