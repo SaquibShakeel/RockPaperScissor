@@ -11,6 +11,7 @@
 
 const playbtn = document.querySelector(".MAIN-PLAY-BUTTON");
 const stopbtn = document.querySelector(".MAIN-STOP-BUTTON");
+const resetbtn = document.querySelector(".MAIN-RESET-BUTTON");
 
 const rockbtn = document.querySelector(".Rock");
 const paperbtn = document.querySelector(".Paper");
@@ -108,25 +109,37 @@ playbtn.addEventListener("click", function (e) {
 });
 
 
-// stopbtn.addEventListener("click", function () {
-//     player1ScoreCounter = 0;
-//     player1Score.textContent = player1ScoreCounter;
-//     player2ScoreCounter = 0;
-//     player2Score.textContent = player2ScoreCounter;
+stopbtn.addEventListener("click", function () {
+    play = false;
 
-//     play = false;
-//     userChoice = 0;
-//     AIchoice = 0;
+    player1Image.style.opacity = 0;
+    player2Image.style.opacity = 0;
 
-//     player1Image.style.opacity = 0;
-//     player2Image.style.opacity = 0;
+    if (player1ScoreCounter === player2ScoreCounter)
+    document.getElementsByTagName("h1")[0].innerText = "It's a draw!!";
+    else if (player1ScoreCounter > player2ScoreCounter)
+    document.getElementsByTagName("h1")[0].innerText = player1input.value + " wins🥳🥳";
+    else
+    document.getElementsByTagName("h1")[0].innerText = player2input.value + " wins🥳🥳";
 
-//     document.querySelectorAll(".choose-buttons").forEach(function (element) {
-//         element.style.cursor = "not-allowed";
-//     });
-// });
+    document.querySelectorAll(".choose-buttons").forEach(function (element) {
+        element.style.cursor = "not-allowed";
+    });
+});
 
+resetbtn.addEventListener("click", function (){
+    play = false;
 
+    player1Image.style.opacity = 0;
+    player2Image.style.opacity = 0;
+
+    player1ScoreCounter = 0;
+    player1Score.textContent = player1ScoreCounter;
+    player2ScoreCounter = 0;
+    player2Score.textContent = player2ScoreCounter;
+
+    document.getElementsByTagName("h1")[0].innerText = "Rock Paper Scissor";
+})
 
 
 
